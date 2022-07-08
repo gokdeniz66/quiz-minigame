@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="s1175119" />
+  <title>FrontMenQuiz | Frontend Development Quiz</title>
+  <meta name="description" content="Een quiz game waar je je programmeer kennis op test stelt!" />
+  <meta name="keywords" content="frontmenquiz, quiz, windesheim, frontend, development, frontend development, game" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/frontmenquiz.css" />
+</head>
+
+<body>
+  <!-- START PAGE -->
+  <div class="container">
+    <!-- LOGIN PAGE -->
+    <div id="page-login" class="flex-center flex-column">
+      <h1 class="login_title">Player Login</h1>
+      <input type="text" class="login_input" id="student_nummer" onkeyup="input_empty()" name="stnumber"
+        autocomplete="off" placeholder="s1234567" />
+      <p id="warning-message"></p>
+      <p id="succes-message"></p>
+      <button class="btn" id="login_button" disabled onclick="StudentLogin()">
+        Login
+      </button>
+    </div>
+
+    <!-- QUIZ MENU PAGE -->
+    <div id="page-start" class="flex-center flex-column">
+      <h1 class="quiz_name">FrontMenQuiz</h1>
+      <div class="quiz_information">
+        <p id="quiz_text">
+          Dagelijks worden er mensen op de proef gesteld door het maken van
+          een quiz.<br />
+          De mensen die de quiz uitoefenen krijgen een inzicht hoe goed ze de
+          stof en kennis beheersen.<br />
+          Door het maken van deze Frontend Development Quiz heb je een
+          mogelijkheid om te kunnen bekijken wat je niveau als Frontend
+          Developer is.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <a class="btn" id="button-questions">Start</a>
+          <a class="btn" id="button-documentation">Documentatie</a>
+        </div>
+        <div class="col-6">
+          <ol class="intro_information">
+            <li>KLIK OP START</li>
+            <li>Beantwoord alle 10 vragen!</li>
+            <li>Bekijk de top 10 spelers!</li>
+            <li>Deel je score via Twitter!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION PAGE -->
+    <div id="page-questions" class="jusfify-center flex-column">
+      <div id="hud">
+        <div id="hud-item">
+          <div id="progressBar">
+            <div id="progressBarLoad"></div>
+          </div>
+        </div>
+      </div>
+      <h2 id="vraag">vraag</h2>
+      <h2 id="bijlage">bijlage</h2>
+      <p id="feedback">feedback</p>
+      <div class="keuze-container">
+        <p class="keuze-letter">A</p>
+        <p class="keuze-text" data-number="1">keuze</p>
+      </div>
+      <div class="keuze-container">
+        <p class="keuze-letter">B</p>
+        <p class="keuze-text" data-number="2">keuze</p>
+      </div>
+      <div class="keuze-container">
+        <p class="keuze-letter">C</p>
+        <p class="keuze-text" data-number="3">keuze</p>
+      </div>
+      <div class="keuze-container">
+        <p class="keuze-letter">D</p>
+        <p class="keuze-text" data-number="4">keuze</p>
+      </div>
+    </div>
+
+    <!-- END PAGE -->
+    <div id="page-end" class="flex-center flex-column">
+      <h1 id="score_message">bericht</h1>
+      <a class="btn" id="button-home">Naar start</a>
+      <a class="btn" id="button-tweet">Tweet nu je score!</a>
+      <a class="btn" id="button-leaderboard">Leaderboard</a>
+    </div>
+
+    <!-- LEADERBOARD PAGE -->
+    <div id="page-leaderboard" class="flex-center flex-column">
+      <h3 class="leaderboard-title">Leaderboard</h3>
+      <p class="leaderboard-desc">Top 10 players</p>
+      <ol class="leaderboard-info">
+        <li id="rank-1"></li>
+        <li id="rank-2"></li>
+        <li id="rank-3"></li>
+        <li id="rank-4"></li>
+        <li id="rank-5"></li>
+        <li id="rank-6"></li>
+        <li id="rank-7"></li>
+        <li id="rank-8"></li>
+        <li id="rank-9"></li>
+        <li id="rank-10"></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PLAYER INFORMATION HUD -->
+  <div class="information_bar">
+    <div class="information_item">Student: <span id="name">Gast</span></div>
+    <div class="information_item" id="timer">
+      <span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <div class="information_item">Punten: <span id="score">0</span></div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/routing.js"></script>
+  <script src="js/game.js"></script>
+</body>
+
+</html>
